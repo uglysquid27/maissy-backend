@@ -63,3 +63,19 @@ exports.dateRange = async (req, res) => {
 		apiResponse.error(res, e.message, 500);
 	}
 };
+exports.destroy = async (req, res) => {
+	try{
+	  const id = req.params.id;
+	  let data = await events.findByPk(id);
+	
+	  if (!data) {
+		apiResponse.sucess(res, 'Data is not found!', 203);
+	  }
+	
+	  await data.destroy(id);
+	
+	  res.status(200).json({ message: "Data was deleted!" });
+	}catch(e){
+	  apiResponse.error(res, e.message, 500);
+	}
+  };
