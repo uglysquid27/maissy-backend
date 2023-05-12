@@ -17,6 +17,7 @@ router.get('/', function (req, res, next) {
 router.get('/events', eventController.index);
 router.post('/events', eventController.store);
 router.get('/events/:from/:to', eventController.dateRange);
+router.post('/events/:id', eventController.update);
 router.delete('/events/:id', eventController.destroy);
 
 router.get('/participants', participantsController.index);

@@ -41,6 +41,17 @@ exports.store = async (req, res) => {
 		apiResponse.error(res, e.message, 500);
 	}
 };
+exports.update = async (req, res) => {
+	try {
+		const { id } = req.params;
+
+		const response = await events.update(req.body, { where: { id } });
+
+		apiResponse.sucess(res, response, 201);
+	} catch (e) {
+		apiResponse.error(res, e.message, 500);
+	}
+};
 exports.dateRange = async (req, res) => {
 	try {
 		// const { page, size } = req.query;
@@ -64,18 +75,18 @@ exports.dateRange = async (req, res) => {
 	}
 };
 exports.destroy = async (req, res) => {
-	try{
-	  const id = req.params.id;
-	  let data = await events.findByPk(id);
-	
-	  if (!data) {
-		apiResponse.sucess(res, 'Data is not found!', 203);
-	  }
-	
-	  await data.destroy(id);
-	
-	  res.status(200).json({ message: "Data was deleted!" });
-	}catch(e){
-	  apiResponse.error(res, e.message, 500);
+	try {
+		const id = req.params.id;
+		let data = await events.findByPk(id);
+
+		if (!data) {
+			apiResponse.sucess(res, 'Data is not found!', 203);
+		}
+
+		await data.destroy(id);
+
+		res.status(200).json({ message: 'Data was deleted!' });
+	} catch (e) {
+		apiResponse.error(res, e.message, 500);
 	}
-  };
+};
