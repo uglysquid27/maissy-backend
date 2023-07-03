@@ -3,7 +3,7 @@ const v = new Validator();
 const { events } = require('./../models');
 // let { startOfDay, endOfDay, parseISO } = require('date-fns');
 const apiResponse = require('./../traits/api-response');
-const { Op } = require('sequelize');
+const { Op} = require('sequelize');
 
 exports.index = async (req, res) => {
 	try {

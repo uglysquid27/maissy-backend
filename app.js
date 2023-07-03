@@ -5,7 +5,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 const multer = require('multer');
 const upload = multer();
-const cors = require('cors');
+
 
 var indexRouter = require('./routes/index');
 var apiRouter = require('./routes/api');
@@ -13,7 +13,7 @@ var authRouter = require('./routes/auth');
 var emailRouter = require('./routes/email');
 
 var app = express();
-app.use(cors());
+// app.use(cors());
 app.use((req, res, next) => {
 	res.setHeader('Content-Type', 'application/json');
 	res.header('Access-Control-Allow-Origin', '*');
