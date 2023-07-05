@@ -18,3 +18,14 @@ exports.index = async (req, res) => {
     apiResponse.error(res, e.message, 500);
   }
 };
+exports.store = async (req, res) => {
+  try {
+    const response = await attachments.create(req.body, {
+      fields: ["eventId", "fileName", "realName", "path", "type", "sizeBytes"],
+    });
+
+    apiResponse.sucess(res, response, 201);
+  } catch (e) {
+    apiResponse.error(res, e.message, 500);
+  }
+};

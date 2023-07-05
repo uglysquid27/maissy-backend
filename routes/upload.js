@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express();
 multer = require("multer");
+const { attachments } = require("./../models");
 // const upload = multer({ dest: './public/data/uploads/' })
 
 // File upload settings
@@ -25,7 +26,25 @@ router.post("/upload", upload.single("files"), function (req, res) {
     } else {
       console.log("File is available!");
       console.log(req.body.dataId);
-      return res.status(200).send({ file: req.file, body: req.body });
+      const body = {
+        eventId: req.body.dataId,
+        fileName: req.file.filename,
+        realName: req.file.originalname,
+        path: req.file.path,
+        type: req.file.mimetype,
+        sizeBytes: req.file.size,
+      };
+      const response = attachments.create(body, {
+        fields: [
+          "eventId",
+          "fileName",
+          "realName",
+          "path",
+          "type",
+          "sizeBytes",
+        ],
+      });
+      return res.status(200).send({ file: req.file, resAttach: response });
     }
   } catch (err) {
     return res.status(500).send(err);
