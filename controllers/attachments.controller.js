@@ -29,3 +29,35 @@ exports.store = async (req, res) => {
     apiResponse.error(res, e.message, 500);
   }
 };
+exports.destroy = async (req, res) => {
+  try {
+    const id = req.params.eventId;
+    let data = await attachments.findAll({
+      where: {
+        eventId: id,
+      },
+      attributes: [
+        "eventId",
+        "fileName",
+        "realName",
+        "path",
+        "type",
+        "sizeBytes",
+      ],
+    });
+
+    if (!data) {
+      apiResponse.sucess(res, "Data is not found!", 203);
+    }
+
+    await attachments.destroy({
+      where: {
+        eventId: id,
+      },
+    });
+
+    res.status(200).json({ message: "Data was deleted!" });
+  } catch (e) {
+    apiResponse.error(res, e.message, 500);
+  }
+};

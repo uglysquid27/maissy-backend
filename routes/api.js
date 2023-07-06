@@ -6,6 +6,7 @@ const participantsController = require("./../controllers/participants.controller
 const roomsController = require("./../controllers/rooms.controller");
 const authController = require("./../controllers/auth.controllers");
 const employeesController = require("./../controllers/employees.controller");
+const attachmentsController = require("./../controllers/attachments.controller");
 
 urlencoded = bodyParser.urlencoded({ extended: false });
 
@@ -29,5 +30,10 @@ router.get("/rooms", roomsController.index);
 
 // -------------------------------> Employees
 router.get("/employees/email", employeesController.employeesEmail);
+
+//--------------------------------> Attachments
+router.delete("/attachments/:eventId", attachmentsController.destroy);
+
+
 
 module.exports = router;
