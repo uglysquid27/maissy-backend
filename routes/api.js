@@ -32,6 +32,8 @@ router.get("/rooms", roomsController.index);
 router.get("/employees/email", employeesController.employeesEmail);
 
 //--------------------------------> Attachments
+router.get("/attachments", attachmentsController.index);
+router.get("/attachments/:eventId", attachmentsController.getById);
 router.delete("/attachments/:eventId", attachmentsController.destroy);
 
 

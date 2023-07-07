@@ -15,10 +15,11 @@ var uploadRouter = require("./routes/upload");
 var app = express();
 // app.use(cors());
 app.use((req, res, next) => {
-  res.setHeader("Content-Type", "application/json");
-  res.header("Access-Control-Allow-Origin", "*");
+  res.setHeader("Content-Type", ["application/json", "multipart/form-data"]);
+  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
   res.header("Access-Control-Allow-Methods", "*");
   res.header("Access-Control-Allow-Headers", "*");
+  res.header("Access-Control-Allow-Credentials", true);
   next();
 });
 
@@ -42,6 +43,6 @@ app.use("/", indexRouter);
 app.use("/api", apiRouter);
 app.use("/auth", authRouter);
 app.use("/email", emailRouter);
-app.use('/upload', uploadRouter);
+app.use("/upload", uploadRouter);
 
 module.exports = app;
