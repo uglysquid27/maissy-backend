@@ -4,6 +4,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var bodyParser = require("body-parser");
 const multer = require("multer");
+var cors = require("cors");
 const upload = multer();
 
 var indexRouter = require("./routes/index");
@@ -13,13 +14,13 @@ var emailRouter = require("./routes/email");
 var uploadRouter = require("./routes/upload");
 
 var app = express();
-// app.use(cors());
+// app.use(cors({credentials: false, origin: '*'}));
 app.use((req, res, next) => {
-  res.setHeader("Content-Type", ["application/json", "multipart/form-data"]);
-  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+  res.setHeader("Content-Type", "application/json");
+  res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "*");
   res.header("Access-Control-Allow-Headers", "*");
-  res.header("Access-Control-Allow-Credentials", true);
+  // res.header("Access-Control-Allow-Credentials", "false");
   next();
 });
 
@@ -31,7 +32,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-// app.use(upload.array());
+// app.use(upload.none());
 // app.post("/stats", upload.single('files'), function (req, res) {
 //   // req.file is the name of your file in the form above, here 'uploaded_file'
 //   // req.body will hold the text fields, if there were any

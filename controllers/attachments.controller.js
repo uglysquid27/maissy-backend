@@ -5,6 +5,7 @@ const { attachments } = require("./../models");
 const apiResponse = require("./../traits/api-response");
 const { Op } = require("sequelize");
 const { unlink } = require("../routes/upload");
+const fs = require("fs");
 
 exports.index = async (req, res) => {
   try {
@@ -79,9 +80,9 @@ exports.destroy = async (req, res) => {
     if (!data) {
       apiResponse.sucess(res, "Data is not found!", 203);
     } else {
-      // data.forEach((element) => {
-      //   unlink(element.path);
-      // });
+      data.forEach((element) => {
+        fs.unlinkSync(element.path);
+      });
     }
 
     await attachments.destroy({

@@ -22,10 +22,9 @@ let upload = multer({
 
 router.post("/", upload.single("files"), async function (req, res) {
   try {
-    console.log(req.files);
-    console.log(req.file);
     if (!req.file) {
-      // console.log(req);
+      console.log(req.file);
+      console.log(req.body);
       console.log("No file is available!");
       return res.status(404).send("No FOund");
     } else {
@@ -51,47 +50,47 @@ router.post("/", upload.single("files"), async function (req, res) {
         ],
       });
       console.log(req.body);
-      // if (req.body.date != null) {
-      //   let transporter = nodemailer.createTransport({
-      //     // service: 'gmail',
-      //     host: "mail.aio.co.id",
-      //     port: 587,
-      //     secure: false, // true for 465, false for other ports
-      //     auth: {
-      //       user: "appskjy@aio.co.id",
-      //       pass: "Plicakjy1234",
-      //     },
-      //     from: "appskjy@aio.co.id",
-      //   });
-      //   console.log(req.body.participants);
-      //   var mail = {
-      //     // sender address
-      //     from: req.body.organizer + "<appskjy@aio.co.id>",
-      //     to: req.body.participants, // list of receivers
-      //     subject: "AIO Meeting Invitation ", // Subject line
-      //     // html: '<b>' + req.body.message + '</b>', // html body
-      //     text: req.body.message, // plain text body
-      //     attachments: [
-      //       {
-      //         // file on disk as an attachment
-      //         filename: req.file.originalname,
-      //         path: req.file.path, // stream this file
-      //       },
-      //     ],
-      //   };
+      if (req.body.date != null) {
+        let transporter = nodemailer.createTransport({
+          // service: 'gmail',
+          host: "mail.aio.co.id",
+          port: 587,
+          secure: false, // true for 465, false for other ports
+          auth: {
+            user: "appskjy@aio.co.id",
+            pass: "Plicakjy1234",
+          },
+          from: "appskjy@aio.co.id",
+        });
+        console.log(req.body.participants);
+        var mail = {
+          // sender address
+          from: req.body.organizer + "<appskjy@aio.co.id>",
+          to: req.body.participants, // list of receivers
+          subject: "AIO Meeting Invitation ", // Subject line
+          // html: '<b>' + req.body.message + '</b>', // html body
+          text: req.body.message, // plain text body
+          attachments: [
+            {
+              // file on disk as an attachment
+              filename: req.file.originalname,
+              path: req.file.path, // stream this file
+            },
+          ],
+        };
 
-      //   // send mail with defined transport object
-      //   let infos = await transporter.sendMail(mail, function (error, info) {
-      //     if (error) {
-      //       console.log(error);
-      //       // res.send(error);
-      //     } else {
-      //       console.log(info);
-      //       // res.send(info);
-      //     }
-      //   });
-      //   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(infos));
-      // }
+        // send mail with defined transport object
+        let infos = await transporter.sendMail(mail, function (error, info) {
+          if (error) {
+            console.log(error);
+            // res.send(error);
+          } else {
+            console.log(info);
+            // res.send(info);
+          }
+        });
+        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(infos));
+      }
       return res
         .status(200)
         .send({ file: req.file, resAttach: response, mail: req.body.mail });

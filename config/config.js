@@ -15,6 +15,15 @@ module.exports = {
     port: "3306",
     dialect: "mysql",
   },
+  mris: {
+    username: "root",
+    password: null,
+    database: "mris",
+    host: "127.0.0.1",
+    port: "3306",
+    dialect: "mysql",
+    timezone: "+07:00",
+  },
   production: {
     username: "root",
     password: null,
