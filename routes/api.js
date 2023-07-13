@@ -30,6 +30,7 @@ router.get("/rooms", roomsController.index);
 
 // -------------------------------> Employees
 router.get("/employees/email", employeesController.employeesEmail);
+router.get("/employees/name-email", employeesController.employeesNameEmail);
 
 //--------------------------------> Attachments
 router.get("/attachments", attachmentsController.index);
