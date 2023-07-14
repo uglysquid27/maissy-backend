@@ -19,6 +19,7 @@ router.post("/send", async (req, res, next) => {
     from: "appskjy@aio.co.id",
   });
   console.log(req.body);
+  return
   const event = {
     start: [
       req.body.year,
@@ -47,6 +48,11 @@ router.post("/send", async (req, res, next) => {
         trigger: { hours: 1, minutes: 30, before: true },
       },
     ],
+    organizer: { name: req.body.organizer[1], email: req.body.organizer[0] },
+  attendees: [
+    { name: 'Adam Gibbons', email: 'adam@example.com', rsvp: true, partstat: 'ACCEPTED', role: 'REQ-PARTICIPANT' },
+    { name: 'Brittany Seaton', email: 'brittany@example2.org', dir: 'https://linkedin.com/in/brittanyseaton', role: 'OPT-PARTICIPANT' }
+  ]
   };
   let eventIcs;
   ics.createEvent(event, (err, value) => {
@@ -59,7 +65,7 @@ router.post("/send", async (req, res, next) => {
   });
   var mail = {
     // sender address
-    from: req.body.organizer + "<appskjy@aio.co.id>",
+    from: req.body.organizer[1] + "<appskjy@aio.co.id>",
     to: req.body.participants, // list of receivers
     subject: "AIO Meeting Invitation ", // Subject line
     // html: '<b>' + req.body.message + '</b>', // html body
