@@ -6,7 +6,7 @@ module.exports = {
 		return await queryInterface.bulkInsert('participants', [
 			{
 				eventId: 1,
-				email: 'test@gmail.com',
+				email: 'rifkisatiya@gmail.com',
 			},
 		]);
 	},
