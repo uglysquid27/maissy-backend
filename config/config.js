@@ -2,8 +2,8 @@ require("dotenv").config();
 module.exports = {
   development: {
     username: "root",
-    password: null,
-    database: "meeting_calendar_aio",
+    password: "123456",
+    database: "scada_alarm",
     host: "127.0.0.1",
     dialect: "mysql",
   },
@@ -15,10 +15,28 @@ module.exports = {
     port: "3306",
     dialect: "mysql",
   },
-  mris: {
+  sms: {
     username: "iot_prod",
     password: "123456",
-    database: "mris_database",
+    database: "sms",
+    host: "192.168.9.47",
+    port: "3306",
+    dialect: "mysql",
+    timezone: "+07:00",
+  },
+  pdm: {
+    username: "iot_prod",
+    password: "123456",
+    database: "plan_pdm",
+    host: "192.168.9.47",
+    port: "3306",
+    dialect: "mysql",
+    timezone: "+07:00",
+  },
+  kluber: {
+    username: "iot_prod",
+    password: "123456",
+    database: "kluber_lubrication",
     host: "192.168.9.47",
     port: "3306",
     dialect: "mysql",

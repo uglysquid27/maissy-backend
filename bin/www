@@ -5,14 +5,14 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('meeting-calendar-aio:server');
+var debug = require('debug')('maissy-express-aio:server');
 var http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3666');
+var port = normalizePort(process.env.PORT || '3887');
 app.set('port', port);
 
 /**
