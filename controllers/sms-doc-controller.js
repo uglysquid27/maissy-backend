@@ -1,9 +1,9 @@
-const config = require('../config/connection.js');
+const config = require('../config/connections.js');
 const Sequelize = require('sequelize');
 
 exports.read = async (req, res) => {
     try {
-        const get = await config.connect1.query(`SELECT m.menu, m.endpoint,d.server, m.id FROM maissy_dbs d
+        const get = await config.connectSms.query(`SELECT m.menu, m.endpoint,d.server, m.id FROM maissy_dbs d
         JOIN maissy_menus m ON m.db_id = d.id
         `, {
             type: Sequelize.QueryTypes.SELECT
@@ -22,7 +22,7 @@ exports.section = async(req, res) => {
     let id = req.params.id;
 
     try {
-        const get = await config.connect1.query(`SELECT s.id, s.section, d.db_name, d.server, s.tables FROM maissy_section s 
+        const get = await config.connectSms.query(`SELECT s.id, s.section, d.db_name, d.server, s.tables FROM maissy_section s 
         JOIN maissy_dbs d ON s.db_id = d.id WHERE menu_id = ${id}`, {
             type: Sequelize.QueryTypes.SELECT
         });
@@ -41,7 +41,7 @@ exports.tables = async(req, res) => {
     let id = req.params.id;
 
     try {
-        const get = await config.connect1.query(`SELECT d.db_name,t.table_name, t.column_name FROM maissy_tables t
+        const get = await config.connectSms.query(`SELECT d.db_name,t.table_name, t.column_name FROM maissy_tables t
         JOIN maissy_dbs d ON t.db_id = d.id
         JOIN maissy_section s ON t.section_id = s.id
         WHERE t.section_id = ${id}`, {
