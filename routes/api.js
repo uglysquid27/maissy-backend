@@ -6,6 +6,7 @@ const participantsController = require("./../controllers/participants.controller
 const roomsController = require("./../controllers/rooms.controller");
 const amDashboardController = require("./../controllers/am-dasboard-controller");
 const pdmDashboardController = require("./../controllers/pdm-dashboard-controllers");
+const kluberController = require("./../controllers/kluber-controller");
 const authController = require("./../controllers/auth.controllers");
 const employeesController = require("./../controllers/employees.controller");
 const attachmentsController = require("./../controllers/attachments.controller");
@@ -148,6 +149,50 @@ router.get('/fsbfnotfinish',pdmDashboardController.fsbfnotfinish);
 router.get('/oci1valuepermonth',pdmDashboardController.oci1valuepermonth);
 router.get('/oci2valuepermonth',pdmDashboardController.oci2valuepermonth);
 router.get('/fsbvaluepermonth',pdmDashboardController.fsbvaluepermonth);
+
+//////////////////////////////
+//ROUTE FOR DASHBOARD KLUBER//
+//////////////////////////////
+router.get('/oilproduct', kluberController.oilproduct);
+router.get('/greaseproduct', kluberController.greaseproduct);
+router.get('/spraysproduct', kluberController.spraysproduct);
+router.get('/maintenanceproduct', kluberController.maintenanceproduct);
+router.get('/pasteproduct', kluberController.pasteproduct);
+router.get('/injection', kluberController.injectionmolder);
+router.get('/bottle', kluberController.bottleshower);
+router.get('/fillerpetline1', kluberController.fillerpetline1);
+router.get('/krones', kluberController.krones);
+router.get('/sanyu', kluberController.sanyu);
+router.get('/labeller', kluberController.labeller);
+router.get('/divider', kluberController.divider);
+router.get('/sheetfeeder', kluberController.sheetfeeder);
+router.get('/shrinktray', kluberController.shrinktray);
+router.get('/packconveyor', kluberController.packconveyor);
+router.get('/palletconveyor', kluberController.palletconveyor);
+router.get('/palletiser', kluberController.palletiser);
+router.get('/packroller', kluberController.packroller);
+router.get('/injectionmolderpt2', kluberController.injectionmolderpt2);
+router.get('/bottleblowerpt2', kluberController.bottleblowerpt2);
+router.get('/fillerpt2', kluberController.fillerpt2);
+router.get('/conveyorpt2', kluberController.conveyorpt2);
+router.get('/labellerpt2', kluberController.labellerpt2);
+router.get('/sanyupt2', kluberController.sanyupt2);
+router.get('/caserpt2', kluberController.caserpt2);
+router.get('/sheetfeederpt2', kluberController.sheetfeederpt2);
+router.get('/packconveyorpt2', kluberController.packconveyorpt2);
+router.get('/palletconveyorpt2', kluberController.palletconveyorpt2);
+router.get('/palletiserpt2', kluberController.palletiserpt2);
+router.get('/offpackmain', kluberController.offlinepackingmain);
+router.get('/pet1', kluberController.pet1);
+router.get('/pet2', kluberController.pet2);
+router.get('/press1', kluberController.press1);
+router.get('/press2', kluberController.press2);
+router.get('/cip', kluberController.cip);
+router.get('/oxonia', kluberController.oxonia);
+router.get('/containeroff', kluberController.containeroff);
+router.get('/robopackeroff', kluberController.robopackeroff);
+router.get('/resealeroff', kluberController.resealeroff);
+router.get('/packconveyoroff', kluberController.packconveyoroff);
 
 //////////////////////////////
 // ROUTE FOR DASHBOARD BIG5 //
