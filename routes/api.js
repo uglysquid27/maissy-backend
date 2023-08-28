@@ -39,15 +39,6 @@ router.get("/attachments", attachmentsController.index);
 router.get("/attachments/:eventId", attachmentsController.getById);
 router.delete("/attachments/:eventId", attachmentsController.destroy);
 
-/////////////////////
-// ROUTE FOR ALARM //
-/////////////////////
-router.post('/alarm/create', alarmController.create);
-router.get('/alarm/get', alarmController.read);
-router.get('/alarm/getbyid', alarmController.readbyid);
-router.post('/alarm/update', alarmController.update);
-router.delete('/alarm/delete', alarmController.delete);
-
 ////////////////////////////
 // ROUTE FOR DASHBOARD AM //
 ////////////////////////////
