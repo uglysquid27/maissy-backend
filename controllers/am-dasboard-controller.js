@@ -19,7 +19,7 @@ exports.read = async (req, res) => {
 
 exports.readTotalFindingM = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT * FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.id_area = 1;", {
+        const get = await config.connectSms.query("SELECT * FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.id_area = 1;", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -33,7 +33,7 @@ exports.readTotalFindingM = async (req, res) => {
 
 exports.readTotalFindingMoci2 = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT * FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.id_area = 2;", {
+        const get = await config.connectSms.query("SELECT * FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.id_area = 2;", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -47,7 +47,7 @@ exports.readTotalFindingMoci2 = async (req, res) => {
 
 exports.readTotalFindingMfsb = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT * FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.id_area = 3;", {
+        const get = await config.connectSms.query("SELECT * FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.id_area = 3;", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -61,7 +61,7 @@ exports.readTotalFindingMfsb = async (req, res) => {
 
 exports.readTotalFindingMutileng = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT * FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.id_area = 4;", {
+        const get = await config.connectSms.query("SELECT * FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.id_area = 4;", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -75,7 +75,7 @@ exports.readTotalFindingMutileng = async (req, res) => {
 
 exports.readpendingexecute = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 12 MONTH )AND CURRENT_TIMESTAMP AND (t.`status` = 'Draft' OR t.`status` = 'Submit' OR t.`status` = 'Revise');", {
+        const get = await config.connectSms.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 12 MONTH )AND CURRENT_TIMESTAMP AND (t.`status` = 'Draft' OR t.`status` = 'Submit' OR t.`status` = 'Revise');", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -89,7 +89,7 @@ exports.readpendingexecute = async (req, res) => {
 
 exports.readpendingexecutem = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND (t.`status` = 'Draft' OR t.`status` = 'Submit' OR t.`status` = 'Revise') AND t.id_area = 1;", {
+        const get = await config.connectSms.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND (t.`status` = 'Draft' OR t.`status` = 'Submit' OR t.`status` = 'Revise') AND t.id_area = 1;", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -103,7 +103,7 @@ exports.readpendingexecutem = async (req, res) => {
 
 exports.readpendingexecutemoci2 = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND (t.`status` = 'Draft' OR t.`status` = 'Submit' OR t.`status` = 'Revise') AND t.id_area = 2;", {
+        const get = await config.connectSms.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND (t.`status` = 'Draft' OR t.`status` = 'Submit' OR t.`status` = 'Revise') AND t.id_area = 2;", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -117,7 +117,7 @@ exports.readpendingexecutemoci2 = async (req, res) => {
 
 exports.readpendingexecutemfsb = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND (t.`status` = 'Draft' OR t.`status` = 'Submit' OR t.`status` = 'Revise') AND t.id_area = 3;", {
+        const get = await config.connectSms.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND (t.`status` = 'Draft' OR t.`status` = 'Submit' OR t.`status` = 'Revise') AND t.id_area = 3;", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -131,7 +131,7 @@ exports.readpendingexecutemfsb = async (req, res) => {
 
 exports.readpendingexecutemutileng = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND (t.`status` = 'Draft' OR t.`status` = 'Submit' OR t.`status` = 'Revise') AND t.id_area = 4;", {
+        const get = await config.connectSms.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND (t.`status` = 'Draft' OR t.`status` = 'Submit' OR t.`status` = 'Revise') AND t.id_area = 4;", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -145,7 +145,7 @@ exports.readpendingexecutemutileng = async (req, res) => {
 
 exports.readreadyexecute = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 12 MONTH )AND CURRENT_TIMESTAMP AND t.`status` = 'Approved';", {
+        const get = await config.connectSms.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 12 MONTH )AND CURRENT_TIMESTAMP AND t.`status` = 'Approved';", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -159,7 +159,7 @@ exports.readreadyexecute = async (req, res) => {
 
 exports.readreadyexecutem = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.`status` = 'Approved' AND t.id_area = 1;", {
+        const get = await config.connectSms.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.`status` = 'Approved' AND t.id_area = 1;", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -173,7 +173,7 @@ exports.readreadyexecutem = async (req, res) => {
 
 exports.readreadyexecutemoci2 = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.`status` = 'Approved' AND t.id_area = 2;", {
+        const get = await config.connectSms.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.`status` = 'Approved' AND t.id_area = 2;", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -187,7 +187,7 @@ exports.readreadyexecutemoci2 = async (req, res) => {
 
 exports.readreadyexecutemfsb = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.`status` = 'Approved' AND t.id_area = 3;", {
+        const get = await config.connectSms.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.`status` = 'Approved' AND t.id_area = 3;", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -201,7 +201,7 @@ exports.readreadyexecutemfsb = async (req, res) => {
 
 exports.readreadyexecutemutileng = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.`status` = 'Approved' AND t.id_area = 4;", {
+        const get = await config.connectSms.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.`status` = 'Approved' AND t.id_area = 4;", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -215,7 +215,7 @@ exports.readreadyexecutemutileng = async (req, res) => {
 
 exports.readfinishexecute = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 12 MONTH )AND CURRENT_TIMESTAMP AND t.`status` = 'Done';", {
+        const get = await config.connectSms.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 12 MONTH )AND CURRENT_TIMESTAMP AND t.`status` = 'Done';", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -229,7 +229,7 @@ exports.readfinishexecute = async (req, res) => {
 
 exports.readfinishexecutem = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.`status` = 'Done' AND t.id_area = 1;", {
+        const get = await config.connectSms.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.`status` = 'Done' AND t.id_area = 1;", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -243,7 +243,7 @@ exports.readfinishexecutem = async (req, res) => {
 
 exports.readfinishexecutemoci2 = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.`status` = 'Done' AND t.id_area = 2;", {
+        const get = await config.connectSms.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.`status` = 'Done' AND t.id_area = 2;", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -257,7 +257,7 @@ exports.readfinishexecutemoci2 = async (req, res) => {
 
 exports.readfinishexecutemfsb = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.`status` = 'Done' AND t.id_area = 3;", {
+        const get = await config.connectSms.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.`status` = 'Done' AND t.id_area = 3;", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -271,7 +271,7 @@ exports.readfinishexecutemfsb = async (req, res) => {
 
 exports.readfinishexecutemutileng = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.`status` = 'Done' AND t.id_area = 4;", {
+        const get = await config.connectSms.query("SELECT COUNT(*) AS total FROM tr_temuan_h t WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.`status` = 'Done' AND t.id_area = 4;", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -285,7 +285,7 @@ exports.readfinishexecutemutileng = async (req, res) => {
 
 exports.findingpending = async (req, res) => {
     try {
-        const get = await config.connect1.query(`SELECT o.no_wo, t.finding,l.level, t.photo, t.func_loc, k.kategori, w.status, a.area,s.section, w.total_actual
+        const get = await config.connectSms.query(`SELECT o.no_wo, t.finding,l.level, t.photo, t.func_loc, k.kategori, w.status, a.area,s.section, w.total_actual
         FROM tr_temuan_h t 
         LEFT JOIN mst_order o ON o.funlock = t.func_loc 
         LEFT JOIN tr_wo_sap w ON w.order = o.no_wo  
@@ -307,7 +307,7 @@ exports.findingpending = async (req, res) => {
 
 exports.funcloc = async (req, res) => {
     try {
-        const get = await config.connect1.query(`SELECT t.func_loc, i.PLTXT AS funclocdesc, s.section
+        const get = await config.connectSms.query(`SELECT t.func_loc, i.PLTXT AS funclocdesc, s.section
         FROM tr_temuan_h t 
         JOIN v_iflotx_sms i ON i.TPLNR = t.func_loc 
         JOIN mst_area a ON a.id = t.id_area
@@ -326,7 +326,7 @@ exports.funcloc = async (req, res) => {
 
 exports.findingpendingsection = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT s.section, a.area FROM mst_section s JOIN mst_area a ON a.id = s.id_area WHERE a.area = 'OCI-1';", {
+        const get = await config.connectSms.query("SELECT s.section, a.area FROM mst_section s JOIN mst_area a ON a.id = s.id_area WHERE a.area = 'OCI-1';", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -341,7 +341,7 @@ exports.findingpendingsection = async (req, res) => {
 
 exports.levelam = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT l.`level` FROM tr_temuan_h t JOIN mst_level l ON l.id = t.`level` WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.id_area = 1;", {
+        const get = await config.connectSms.query("SELECT l.`level` FROM tr_temuan_h t JOIN mst_level l ON l.id = t.`level` WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.id_area = 1;", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -355,7 +355,7 @@ exports.levelam = async (req, res) => {
 
 exports.findingpendingoci2 = async (req, res) => {
     try {
-        const get = await config.connect1.query(`SELECT o.no_wo, t.finding,l.level, t.photo, t.func_loc, k.kategori, w.status, a.area,s.section 
+        const get = await config.connectSms.query(`SELECT o.no_wo, t.finding,l.level, t.photo, t.func_loc, k.kategori, w.status, a.area,s.section 
         FROM tr_temuan_h t 
         LEFT JOIN mst_order o ON o.funlock = t.func_loc 
         LEFT JOIN tr_wo_sap w ON w.order = o.no_wo  
@@ -377,7 +377,7 @@ exports.findingpendingoci2 = async (req, res) => {
 
 exports.funclococi2 = async (req, res) => {
     try {
-        const get = await config.connect1.query(`SELECT t.func_loc, i.PLTXT AS funclocdesc, s.section
+        const get = await config.connectSms.query(`SELECT t.func_loc, i.PLTXT AS funclocdesc, s.section
         FROM tr_temuan_h t 
         JOIN v_iflotx_sms i ON i.TPLNR = t.func_loc 
         JOIN mst_area a ON a.id = t.id_area
@@ -396,7 +396,7 @@ exports.funclococi2 = async (req, res) => {
 
 exports.findingpendingsectionoci2 = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT s.section, a.area FROM mst_section s JOIN mst_area a ON a.id = s.id_area WHERE a.area = 'OCI-2';", {
+        const get = await config.connectSms.query("SELECT s.section, a.area FROM mst_section s JOIN mst_area a ON a.id = s.id_area WHERE a.area = 'OCI-2';", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -410,7 +410,7 @@ exports.findingpendingsectionoci2 = async (req, res) => {
 
 exports.levelamoci2 = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT l.`level` FROM tr_temuan_h t JOIN mst_level l ON l.id = t.`level` WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.id_area = 2;", {
+        const get = await config.connectSms.query("SELECT l.`level` FROM tr_temuan_h t JOIN mst_level l ON l.id = t.`level` WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.id_area = 2;", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -424,7 +424,7 @@ exports.levelamoci2 = async (req, res) => {
 
 exports.findingpendingfsb = async (req, res) => {
     try {
-        const get = await config.connect1.query(`SELECT o.no_wo, t.finding,l.level, t.photo, t.func_loc, k.kategori, w.status, a.area,s.section 
+        const get = await config.connectSms.query(`SELECT o.no_wo, t.finding,l.level, t.photo, t.func_loc, k.kategori, w.status, a.area,s.section 
         FROM tr_temuan_h t 
         LEFT JOIN mst_order o ON o.funlock = t.func_loc 
         LEFT JOIN tr_wo_sap w ON w.order = o.no_wo  
@@ -446,7 +446,7 @@ exports.findingpendingfsb = async (req, res) => {
 
 exports.funclocfsb = async (req, res) => {
     try {
-        const get = await config.connect1.query(`SELECT t.func_loc, i.PLTXT AS funclocdesc, s.section
+        const get = await config.connectSms.query(`SELECT t.func_loc, i.PLTXT AS funclocdesc, s.section
         FROM tr_temuan_h t 
         JOIN v_iflotx_sms i ON i.TPLNR = t.func_loc 
         JOIN mst_area a ON a.id = t.id_area
@@ -465,7 +465,7 @@ exports.funclocfsb = async (req, res) => {
 
 exports.findingpendingsectionfsb = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT s.section, a.area FROM mst_section s JOIN mst_area a ON a.id = s.id_area WHERE a.area = 'FSB';", {
+        const get = await config.connectSms.query("SELECT s.section, a.area FROM mst_section s JOIN mst_area a ON a.id = s.id_area WHERE a.area = 'FSB';", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -479,7 +479,7 @@ exports.findingpendingsectionfsb = async (req, res) => {
 
 exports.levelamfsb = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT l.`level` FROM tr_temuan_h t JOIN mst_level l ON l.id = t.`level` WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.id_area = 3;", {
+        const get = await config.connectSms.query("SELECT l.`level` FROM tr_temuan_h t JOIN mst_level l ON l.id = t.`level` WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.id_area = 3;", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -493,7 +493,7 @@ exports.levelamfsb = async (req, res) => {
 
 exports.findingpendingutileng = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT DISTINCT o.no_wo, t.finding,l.`level`, t.photo, t.func_loc, w.status, a.area,s.section FROM tr_temuan_h t JOIN tr_wo_sap w ON w.order_type = t.order_type LEFT JOIN mst_order o ON o.funlock = t.func_loc JOIN mst_level l ON l.id = t.`level`JOIN mst_area a ON a.id = t.id_area JOIN mst_section s ON t.id_section = s.id WHERE a.area = 'Utility' GROUP BY t.func_loc;", {
+        const get = await config.connectSms.query("SELECT DISTINCT o.no_wo, t.finding,l.`level`, t.photo, t.func_loc, w.status, a.area,s.section FROM tr_temuan_h t JOIN tr_wo_sap w ON w.order_type = t.order_type LEFT JOIN mst_order o ON o.funlock = t.func_loc JOIN mst_level l ON l.id = t.`level`JOIN mst_area a ON a.id = t.id_area JOIN mst_section s ON t.id_section = s.id WHERE a.area = 'Utility' GROUP BY t.func_loc;", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -507,7 +507,7 @@ exports.findingpendingutileng = async (req, res) => {
 
 exports.levelamutileng = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT l.`level` FROM tr_temuan_h t JOIN mst_level l ON l.id = t.`level` WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.id_area = 4;", {
+        const get = await config.connectSms.query("SELECT l.`level` FROM tr_temuan_h t JOIN mst_level l ON l.id = t.`level` WHERE t.last_update BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL 0 MONTH )AND CURRENT_TIMESTAMP AND t.id_area = 4;", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -521,7 +521,7 @@ exports.levelamutileng = async (req, res) => {
 
 exports.kategori = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT k.kategori FROM tr_temuan_h t JOIN mst_kategori k ON k.id = t.kategori WHERE t.tanggal_temuan BETWEEN date(date_format(CURDATE(),'%Y-01-01')) AND CURRENT_TIMESTAMP;", {
+        const get = await config.connectSms.query("SELECT k.kategori FROM tr_temuan_h t JOIN mst_kategori k ON k.id = t.kategori WHERE t.tanggal_temuan BETWEEN date(date_format(CURDATE(),'%Y-01-01')) AND CURRENT_TIMESTAMP;", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -535,7 +535,7 @@ exports.kategori = async (req, res) => {
 
 exports.getOrder = async (req, res) => {
     try {
-        const get = await config.connect1.query(`SELECT h.finding,o.actual_end, o.foto, o.note_executor, l.lg_name ,h.func_loc, t.total_actual
+        const get = await config.connectSms.query(`SELECT h.finding,o.actual_end, o.foto, o.note_executor, l.lg_name ,h.func_loc, t.total_actual
         FROM mst_order o 
         JOIN tr_temuan_h h ON o.id_temuan = h.id 
         JOIN vphpmslogin l ON l.lg_nik = o.executor OR l.lg_name = o.executor
@@ -553,7 +553,7 @@ exports.getOrder = async (req, res) => {
 };
 exports.totaldata1year = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT DATE_FORMAT(tr.basic_start_date,'%M') AS bulan,tr.teco_date,o.id_area FROM mst_order o JOIN tr_wo_sap tr ON tr.`order` = o.no_wo WHERE tr.basic_start_date BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL (MONTH(CURDATE())-1) MONTH ) AND CURDATE()", {
+        const get = await config.connectSms.query("SELECT DATE_FORMAT(tr.basic_start_date,'%M') AS bulan,tr.teco_date,o.id_area FROM mst_order o JOIN tr_wo_sap tr ON tr.`order` = o.no_wo WHERE tr.basic_start_date BETWEEN DATE_SUB(CONVERT(CURDATE() - DAY(CURDATE()) + 1,DATE),INTERVAL (MONTH(CURDATE())-1) MONTH ) AND CURDATE()", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -568,7 +568,7 @@ exports.totaldatapost = async (req, res) => {
     const { tgl1, tgl2 } = req.body;
     let get = []
     try {
-        get = await config.connect1.query("SELECT DATE_FORMAT(tr.basic_finish_date,'%M') AS bulan,tr.basic_finish_date,tr.teco_date,tr.order_type, tr.plant_section FROM tr_wo_sap tr WHERE tr.basic_finish_date BETWEEN '" + tgl1 + "' AND '" + tgl2 + "'", {
+        get = await config.connectSms.query("SELECT DATE_FORMAT(tr.basic_finish_date,'%M') AS bulan,tr.basic_finish_date,tr.teco_date,tr.order_type, tr.plant_section FROM tr_wo_sap tr WHERE tr.basic_finish_date BETWEEN '" + tgl1 + "' AND '" + tgl2 + "'", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json(
@@ -583,7 +583,7 @@ exports.totaldatapost = async (req, res) => {
 
 exports.totalfeeding = async (req, res) => {
     try {
-        const get = await config.connect1.query(
+        const get = await config.connectSms.query(
             `SELECT l.level,a.id, a.tanggal_temuan AS tanggal_temuan, YEAR(a.tanggal_temuan) AS tahun, MONTH(a.tanggal_temuan) AS bulan, a.finding, a.status AS status1, b.status_pengerjaan AS status_pengerjaan, b.no_wo, c.status AS status2, a.id_area AS id_area 
             FROM tr_temuan_h a 
             JOIN mst_level l ON l.id = a.level 
@@ -608,7 +608,7 @@ exports.totalfeeding = async (req, res) => {
 
 exports.totalapproval = async (req, res) => {
     try {
-        const get = await config.connect1.query("SELECT distinct h.id_area,h.`status`,h.id_area FROM tr_temuan_h h;", {
+        const get = await config.connectSms.query("SELECT distinct h.id_area,h.`status`,h.id_area FROM tr_temuan_h h;", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json({
@@ -623,7 +623,7 @@ exports.totalapprovalorderfinish = async (req, res) => {
     const { id_area } = req.body;
     let get = []
     try {
-        get = await config.connect1.query("SELECT COUNT(*) AS total FROM v_order_finish s WHERE s.id_area = '" + id_area + "'", {
+        get = await config.connectSms.query("SELECT COUNT(*) AS total FROM v_order_finish s WHERE s.id_area = '" + id_area + "'", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json(
@@ -640,7 +640,7 @@ exports.totalapprovalshcedule = async (req, res) => {
     const { id_area } = req.body;
     let get = []
     try {
-        get = await config.connect1.query("SELECT COUNT(*) AS total FROM view_schedule s WHERE s.id_area = '" + id_area + "' AND s.plan_start IS NULL AND s.plan_end IS NULL ", {
+        get = await config.connectSms.query("SELECT COUNT(*) AS total FROM view_schedule s WHERE s.id_area = '" + id_area + "' AND s.plan_start IS NULL AND s.plan_end IS NULL ", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json(
@@ -656,7 +656,7 @@ exports.totalapprovalshcedule = async (req, res) => {
 exports.reportingharianam = async (req, res) => {
     const { tgl, id_area } = req.body;
     try {
-        let get = await config.connect1.query("SELECT s.section,a.no_wo,a.foto, a.`desc`, a.note_executor, a.executor,(SELECT AVG(ce.prosentase) FROM componen_order ce WHERE ce.no_wo = a.no_wo) AS total  FROM mst_order a join mst_section s ON s.id = a.id_section WHERE a.actual_end = '" + tgl + "' AND a.id_area = '" + id_area + "' AND a.actual_end IS NOT NULL", {
+        let get = await config.connectSms.query("SELECT s.section,a.no_wo,a.foto, a.`desc`, a.note_executor, a.executor,(SELECT AVG(ce.prosentase) FROM componen_order ce WHERE ce.no_wo = a.no_wo) AS total  FROM mst_order a join mst_section s ON s.id = a.id_section WHERE a.actual_end = '" + tgl + "' AND a.id_area = '" + id_area + "' AND a.actual_end IS NOT NULL", {
             type: Sequelize.QueryTypes.SELECT
         });
 
@@ -682,7 +682,7 @@ exports.totalpartreporting = async (req, res) => {
     const { no_wo } = req.body;
     let get = []
     try {
-        get = await config.connect1.query("SELECT a.no_wo,a.desc_part,a.qty,a.qty_install,a.prosentase FROM componen_order a WHERE a.no_wo = '" + no_wo + "'", {
+        get = await config.connectSms.query("SELECT a.no_wo,a.desc_part,a.qty,a.qty_install,a.prosentase FROM componen_order a WHERE a.no_wo = '" + no_wo + "'", {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json(
@@ -697,7 +697,7 @@ exports.totalpartreporting = async (req, res) => {
 
 exports.costmonitoringoci1 = async (req, res) => {
     try {
-        get = await config.connect1.query(`SELECT DATE_FORMAT(date, '%Y') AS year, DATE_FORMAT(date, '%m') AS month, c.category, c.budget, c.actual, a.area 
+        get = await config.connectSms.query(`SELECT DATE_FORMAT(date, '%Y') AS year, DATE_FORMAT(date, '%m') AS month, c.category, c.budget, c.actual, a.area 
         FROM cost_order c
         JOIN mst_area a ON a.id = c.id_area
         WHERE YEAR(c.date) = '2023' AND a.area = 'OCI-1'`, {
@@ -715,7 +715,7 @@ exports.costmonitoringoci1 = async (req, res) => {
 
 exports.costmonitoringoci1past = async (req, res) => {
     try {
-        get = await config.connect1.query(`SELECT DATE_FORMAT(date, '%Y') AS year, DATE_FORMAT(date, '%m') AS month, c.category, c.budget, c.actual, a.area 
+        get = await config.connectSms.query(`SELECT DATE_FORMAT(date, '%Y') AS year, DATE_FORMAT(date, '%m') AS month, c.category, c.budget, c.actual, a.area 
         FROM cost_order c
         JOIN mst_area a ON a.id = c.id_area
         WHERE YEAR(c.date) = '2022' AND a.area = 'OCI-1'`, {
@@ -732,7 +732,7 @@ exports.costmonitoringoci1past = async (req, res) => {
 
 exports.finishgoodoci1 = async (req, res) => {
     try {
-        get = await config.connect1.query(`SELECT DATE_FORMAT(f.date, '%Y') AS year, DATE_FORMAT(f.date, '%m') AS month, f.fg_eq , a.area
+        get = await config.connectSms.query(`SELECT DATE_FORMAT(f.date, '%Y') AS year, DATE_FORMAT(f.date, '%m') AS month, f.fg_eq , a.area
         FROM finish_good_product f
         JOIN mst_area a ON f.id_area = a.id
         WHERE a.area = 'OCI-1'`, {
@@ -749,7 +749,7 @@ exports.finishgoodoci1 = async (req, res) => {
 
 exports.costmonitoringoci2 = async (req, res) => {
     try {
-        get = await config.connect1.query(`SELECT DATE_FORMAT(date, '%Y') AS year, DATE_FORMAT(date, '%m') AS month, c.category, c.budget, c.actual, a.area 
+        get = await config.connectSms.query(`SELECT DATE_FORMAT(date, '%Y') AS year, DATE_FORMAT(date, '%m') AS month, c.category, c.budget, c.actual, a.area 
         FROM cost_order c
         JOIN mst_area a ON a.id = c.id_area
         WHERE YEAR(c.date) = '2023' AND a.area = 'OCI-2'`, {
@@ -767,7 +767,7 @@ exports.costmonitoringoci2 = async (req, res) => {
 
 exports.costmonitoringoci2past = async (req, res) => {
     try {
-        get = await config.connect1.query(`SELECT DATE_FORMAT(date, '%Y') AS year, DATE_FORMAT(date, '%m') AS month, c.category, c.budget, c.actual, a.area 
+        get = await config.connectSms.query(`SELECT DATE_FORMAT(date, '%Y') AS year, DATE_FORMAT(date, '%m') AS month, c.category, c.budget, c.actual, a.area 
         FROM cost_order c
         JOIN mst_area a ON a.id = c.id_area
         WHERE YEAR(c.date) = '2022' AND a.area = 'OCI-2'`, {
@@ -784,7 +784,7 @@ exports.costmonitoringoci2past = async (req, res) => {
 
 exports.finishgoodoci2 = async (req, res) => {
     try {
-        get = await config.connect1.query(`SELECT DATE_FORMAT(f.date, '%Y') AS year, DATE_FORMAT(f.date, '%m') AS MONTH, f.fg_eq , a.area
+        get = await config.connectSms.query(`SELECT DATE_FORMAT(f.date, '%Y') AS year, DATE_FORMAT(f.date, '%m') AS MONTH, f.fg_eq , a.area
         FROM finish_good_product f
         JOIN mst_area a ON f.id_area = a.id
         WHERE a.area = 'OCI-2' `, {
@@ -801,7 +801,7 @@ exports.finishgoodoci2 = async (req, res) => {
 
 exports.costmonitoringfsb = async (req, res) => {
     try {
-        get = await config.connect1.query(`SELECT DATE_FORMAT(date, '%Y') AS year, DATE_FORMAT(date, '%m') AS month, c.category, c.budget, c.actual, a.area 
+        get = await config.connectSms.query(`SELECT DATE_FORMAT(date, '%Y') AS year, DATE_FORMAT(date, '%m') AS month, c.category, c.budget, c.actual, a.area 
         FROM cost_order c
         JOIN mst_area a ON a.id = c.id_area
         WHERE YEAR(c.date) = '2023' AND a.area = 'FSB'`, {
@@ -819,7 +819,7 @@ exports.costmonitoringfsb = async (req, res) => {
 
 exports.costmonitoringfsbpast = async (req, res) => {
     try {
-        get = await config.connect1.query(`SELECT DATE_FORMAT(date, '%Y') AS year, DATE_FORMAT(date, '%m') AS month, c.category, c.budget, c.actual, a.area 
+        get = await config.connectSms.query(`SELECT DATE_FORMAT(date, '%Y') AS year, DATE_FORMAT(date, '%m') AS month, c.category, c.budget, c.actual, a.area 
         FROM cost_order c
         JOIN mst_area a ON a.id = c.id_area
         WHERE YEAR(c.date) = '2022' AND a.area = 'FSB'`, {
@@ -836,7 +836,7 @@ exports.costmonitoringfsbpast = async (req, res) => {
 
 exports.finishgoodfsb = async (req, res) => {
     try {
-        get = await config.connect1.query(`SELECT DATE_FORMAT(f.date, '%Y') AS year, DATE_FORMAT(f.date, '%m') AS MONTH, f.fg_eq , a.area
+        get = await config.connectSms.query(`SELECT DATE_FORMAT(f.date, '%Y') AS year, DATE_FORMAT(f.date, '%m') AS MONTH, f.fg_eq , a.area
         FROM finish_good_product f
         JOIN mst_area a ON f.id_area = a.id
         WHERE a.area = 'FSB' `, {
@@ -853,7 +853,7 @@ exports.finishgoodfsb = async (req, res) => {
 
 exports.currentcycle = async (req, res) => {
     try {
-        get = await config.connect1.query(`SELECT id FROM mst_cycle  WHERE MONTH(start_date) = MONTH(NOW())`, {
+        get = await config.connectSms.query(`SELECT id FROM mst_cycle  WHERE MONTH(start_date) = MONTH(NOW())`, {
             type: Sequelize.QueryTypes.SELECT
         });
         return res.status(200).json(
@@ -867,7 +867,7 @@ exports.currentcycle = async (req, res) => {
 
 exports.ciltreportoci2 = async (req, res) => {
     try {
-        get = await config.connect1.query(`SELECT p.id, s.section, ss.sub_section , p.activity, MONTH(c.start_date), p.result, p.tgl_cek , p.id_cycle, p.next_cycle
+        get = await config.connectSms.query(`SELECT p.id, s.section, ss.sub_section , p.activity, MONTH(c.start_date), p.result, p.tgl_cek , p.id_cycle, p.next_cycle
         FROM tr_pengecekan_aktif p 
     JOIN mst_cycle c ON c.id = p.id_cycle
     JOIN mst_sub_section ss ON ss.id = p.id_sub_section
@@ -885,7 +885,7 @@ exports.ciltreportoci2 = async (req, res) => {
 };
 exports.ciltreportfsb = async (req, res) => {
     try {
-        get = await config.connect1.query(`SELECT p.id, s.section, ss.sub_section , p.activity, MONTH(c.start_date), p.result, p.tgl_cek , p.id_cycle, p.next_cycle
+        get = await config.connectSms.query(`SELECT p.id, s.section, ss.sub_section , p.activity, MONTH(c.start_date), p.result, p.tgl_cek , p.id_cycle, p.next_cycle
         FROM tr_pengecekan_aktif p 
     JOIN mst_cycle c ON c.id = p.id_cycle
     JOIN mst_sub_section ss ON ss.id = p.id_sub_section
@@ -903,7 +903,7 @@ exports.ciltreportfsb = async (req, res) => {
 };
 exports.ciltreportoci1 = async (req, res) => {
     try {
-        get = await config.connect1.query(`SELECT p.id, s.section, ss.sub_section , p.activity, MONTH(c.start_date), p.result, p.tgl_cek , p.id_cycle, p.next_cycle
+        get = await config.connectSms.query(`SELECT p.id, s.section, ss.sub_section , p.activity, MONTH(c.start_date), p.result, p.tgl_cek , p.id_cycle, p.next_cycle
         FROM tr_pengecekan_aktif p 
     JOIN mst_cycle c ON c.id = p.id_cycle
     JOIN mst_sub_section ss ON ss.id = p.id_sub_section
