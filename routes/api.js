@@ -7,6 +7,7 @@ const roomsController = require("./../controllers/rooms.controller");
 const amDashboardController = require("./../controllers/am-dasboard-controller");
 const pdmDashboardController = require("./../controllers/pdm-dashboard-controllers");
 const kluberController = require("./../controllers/kluber-controller");
+const documentationController = require("./../controllers/sms-doc-controller");
 const authController = require("./../controllers/auth.controllers");
 const employeesController = require("./../controllers/employees.controller");
 const attachmentsController = require("./../controllers/attachments.controller");
@@ -17,7 +18,7 @@ urlencoded = bodyParser.urlencoded({ extended: false });
 router.get("/", function (req, res, next) {
   res.send("respond with a resource");
 });
-// router.post('/signin', authController.login);
+router.post('/signin', authController.login);
 
 router.get("/events", eventController.index);
 router.post("/events", eventController.store);
@@ -193,6 +194,13 @@ router.get('/containeroff', kluberController.containeroff);
 router.get('/robopackeroff', kluberController.robopackeroff);
 router.get('/resealeroff', kluberController.resealeroff);
 router.get('/packconveyoroff', kluberController.packconveyoroff);
+
+/////////////////////////////////
+// ROUTE FOR DOCUMENTATION SMS //
+/////////////////////////////////
+router.get('/section', documentationController.read);
+router.get('/database/:id', documentationController.section);
+router.get('/table/:id', documentationController.tables);
 
 //////////////////////////////
 // ROUTE FOR DASHBOARD BIG5 //
